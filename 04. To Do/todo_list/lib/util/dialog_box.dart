@@ -43,12 +43,12 @@ class _DialogBoxState extends State<DialogBox> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // save button
-                MyButton(onPressed: widget.onSave, text: 'Save'),
+                MyButton(onPressed: widget.onCancel, text: 'Cancel'),
 
                 const SizedBox(width: 8),
 
                 // cancel button
-                MyButton(onPressed: widget.onCancel, text: 'Cancel')
+                MyButton(onPressed: widget.onSave, text: 'Save')
               ],
             )
           ],
