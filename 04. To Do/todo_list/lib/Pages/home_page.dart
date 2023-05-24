@@ -97,3 +97,44 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+/*
+body: Column(
+        children: [
+          ListView.builder(
+            itemCount: db.todoList.length,
+            itemBuilder: (context, index) {
+              return ToDoTile(
+                taskName: db.todoList[index][0],
+                taskCompleted: db.todoList[index][1],
+                onChanged: (value) => checkBoxChanged(value, index),
+                deleteFunction: (context) => deleteTask(index),
+              );
+            },
+          ),
+          // reorder method
+          // ReorderableListView(
+          //   children: [
+          //     for (final tile in db.todoList)
+          //       ListTile(
+          //         key: ValueKey(tile),
+          //         title: Text(tile),
+          //       )
+          //   ],
+          //   onReorder: (int oldIndex, int newIndex) {
+          //     setState(() {
+          //       // an adjustment is needed when moving the tile down the list
+          //       if (oldIndex < newIndex) {
+          //         newIndex--;
+          //       }
+
+          //       // get the tile we are moving
+          //       final tile = db.todoList.removeAt(oldIndex);
+
+          //       // place the tile in the new position
+          //       db.todoList.insert(newIndex, tile);
+          //     });
+          //   },
+          // ),
+        ],
+      ),
+*/
