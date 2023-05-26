@@ -36,6 +36,16 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       db.todoList[index][1] = !db.todoList[index][1];
     });
+    db.updateData();
+  }
+
+  // cancel new task
+  void cancelNewTask() {
+    // clear textfield
+    _controller.clear();
+
+    // pop dialog box
+    Navigator.of(context).pop();
   }
 
   // save new task
@@ -55,11 +65,37 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return DialogBox(
           controller: _controller,
+          hintText: 'Add a new Task',
           onSave: saveNewTask,
-          onCancel: () => Navigator.of(context).pop(),
+          onCancel: cancelNewTask,
         );
       },
     );
+  }
+
+  // open habit settings to edit
+  void openTaskSetting(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox(
+          controller: _controller,
+          hintText: db.todoList[index][0],
+          onSave: () => saveExistingTask(index),
+          onCancel: () => cancelNewTask(),
+        );
+      },
+    );
+  }
+
+  // save existing habit with a new name
+  void saveExistingTask(int index) {
+    setState(() {
+      db.todoList[index][0] = _controller.text;
+    });
+    _controller.clear();
+    Navigator.pop(context);
+    db.updateData();
   }
 
   // delete task
@@ -90,6 +126,7 @@ class _HomePageState extends State<HomePage> {
             taskName: db.todoList[index][0],
             taskCompleted: db.todoList[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            settingTapped: (context) => openTaskSetting(index),
             deleteFunction: (context) => deleteTask(index),
           );
         },

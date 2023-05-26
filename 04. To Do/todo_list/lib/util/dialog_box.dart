@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/util/my_button.dart';
 
 // ignore: must_be_immutable
-class DialogBox extends StatefulWidget {
+class DialogBox extends StatelessWidget {
   DialogBox({
     super.key,
     required this.controller,
     required this.onSave,
     required this.onCancel,
+    required this.hintText,
   });
 
   // ignore: prefer_typing_uninitialized_variables
   final controller;
   VoidCallback onSave;
   VoidCallback onCancel;
+  final String hintText;
 
-  @override
-  State<DialogBox> createState() => _DialogBoxState();
-}
+  // get hintText => null;
 
-class _DialogBoxState extends State<DialogBox> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -31,10 +30,17 @@ class _DialogBoxState extends State<DialogBox> {
           children: [
             // get user input
             TextField(
-              controller: widget.controller,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Add a new task',
+              controller: controller,
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                hintText: hintText,
+                hintStyle: const TextStyle(color: Colors.white),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green.shade100),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green.shade100),
+                ),
               ),
             ),
 
@@ -43,12 +49,12 @@ class _DialogBoxState extends State<DialogBox> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // save button
-                MyButton(onPressed: widget.onCancel, text: 'Cancel'),
+                MyButton(onPressed: onCancel, text: 'Cancel'),
 
                 const SizedBox(width: 8),
 
                 // cancel button
-                MyButton(onPressed: widget.onSave, text: 'Save')
+                MyButton(onPressed: onSave, text: 'Save')
               ],
             )
           ],
