@@ -121,29 +121,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.purple.shade500,
         child: const Icon(Icons.add),
       ),
-      body:
-          // ReorderableListView.builder(
-          //   itemBuilder: (context, index) {
-          //     return ToDoTile(
-          //       taskName: db.todoList[index][0],
-          //       taskCompleted: db.todoList[index][1],
-          //       onChanged: (value) => checkBoxChanged(value, index),
-          //       settingTapped: (context) => openTaskSetting(index),
-          //       deleteFunction: (context) => deleteTask(index),
-          //     );
-          //   },
-          //   itemCount: db.todoList.length,
-          //   onReorder: (int oldIndex, int newIndex) {
-          //     setState(() {
-          //       if (oldIndex < newIndex) {
-          //         newIndex -= 1;
-          //       }
-          //       final int item = db.todoList.removeAt(oldIndex);
-          //       db.todoList.insert(newIndex, item);
-          //     });
-          //   },
-          // ),
-          ListView.builder(
+      body: ListView.builder(
         itemCount: db.todoList.length,
         itemBuilder: (context, index) {
           return ToDoTile(
@@ -155,6 +133,27 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
+      // ReorderableListView.builder(
+      //   itemBuilder: (context, index) {
+      //     return ToDoTile(
+      //       taskName: db.todoList[index][0],
+      //       taskCompleted: db.todoList[index][1],
+      //       onChanged: (value) => checkBoxChanged(value, index),
+      //       settingTapped: (context) => openTaskSetting(index),
+      //       deleteFunction: (context) => deleteTask(index),
+      //     );
+      //   },
+      //   itemCount: db.todoList.length,
+      //   onReorder: (int oldIndex, int newIndex) {
+      //     setState(() {
+      //       if (oldIndex < newIndex) {
+      //         newIndex -= 1;
+      //       }
+      //       final int item = db.todoList.removeAt(oldIndex);
+      //       db.todoList.insert(newIndex, item);
+      //     });
+      //   },
+      // ),
     );
   }
 }
