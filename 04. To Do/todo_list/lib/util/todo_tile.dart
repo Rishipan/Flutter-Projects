@@ -29,7 +29,7 @@ class ToDoTile extends StatelessWidget {
             // settings option
             SlidableAction(
               onPressed: settingTapped,
-              backgroundColor: Colors.grey.shade800,
+              backgroundColor: Colors.grey.shade600,
               icon: Icons.settings,
               borderRadius: BorderRadius.circular(12),
             ),
@@ -45,27 +45,39 @@ class ToDoTile extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Colors.purple,
+            color: Colors.purple.shade300,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // checkbox
-              Checkbox(
-                value: taskCompleted,
-                onChanged: onChanged,
-                activeColor: Colors.green,
+              Row(
+                children: [
+                  Checkbox(
+                    value: taskCompleted,
+                    onChanged: onChanged,
+                    activeColor: Colors.green,
+                    checkColor: Colors.white,
+                  ),
+
+                  // task name
+                  Text(
+                    taskName,
+                    style: TextStyle(
+                      decoration: taskCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
 
-              // task name
-              Text(
-                taskName,
-                style: TextStyle(
-                  decoration: taskCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
-                  color: Colors.white,
-                ),
+              // hint arrow
+              Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.purple.shade100,
+                size: Checkbox.width,
               ),
             ],
           ),

@@ -28,7 +28,7 @@ class HabitTile extends StatelessWidget {
             // settings option
             SlidableAction(
               onPressed: settingTapped,
-              backgroundColor: Colors.grey.shade800,
+              backgroundColor: Colors.grey.shade600,
               icon: Icons.settings,
               borderRadius: BorderRadius.circular(12),
             ),
@@ -45,19 +45,30 @@ class HabitTile extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Colors.green.shade200,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // checkbox
-              Checkbox(
-                value: habitCompleted,
-                onChanged: onChanged,
-              ),
+              Row(
+                children: [
+                  // checkbox
+                  Checkbox(
+                    value: habitCompleted,
+                    onChanged: onChanged,
+                  ),
 
-              // habit name
-              Text(habitName),
+                  // habit name
+                  Text(habitName),
+                ],
+              ),
+              // arrow icon
+              Icon(
+                Icons.arrow_back_rounded,
+                size: Checkbox.width,
+                color: Colors.green.shade100,
+              ),
             ],
           ),
         ),
