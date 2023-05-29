@@ -1,0 +1,9 @@
+flutter_native_splash:
+  color: '#CE93D8'
+  image_path: "assets/images/spl.png"
+  # background_image: 'assets/images/sp.png'
+
+  android_12:
+    color: '#CE93D8'
+    image_path: "assets/images/spl.png"
+

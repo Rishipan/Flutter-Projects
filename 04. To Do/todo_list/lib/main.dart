@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'pages/home_page.dart';
+import 'package:todo_list/splash_src.dart';
+// import 'pages/home_page.dart';
 
 void main() async {
   // var path = Directory.current.path;
@@ -12,9 +13,8 @@ void main() async {
   await Hive.openBox('mybox');
 
   runApp(const MyApp());
+  runApp(const MyApp());
 }
-
-class Directory {}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: SplashScreen(),
       // theme: ThemeData(primarySwatch: Colors.pink),
     );
   }

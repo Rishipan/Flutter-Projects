@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Habit Tracker'),
         elevation: 0,
       ),
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.green.shade100,
       floatingActionButton: MyFloatingActionButton(onPressed: createNewHabit),
       body: ListView(
         children: [
