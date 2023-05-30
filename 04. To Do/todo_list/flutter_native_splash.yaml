@@ -1,9 +1,9 @@
 flutter_native_splash:
   color: '#CE93D8'
-  image_path: "assets/images/spl.png"
+  image: "assets/images/todo_icon_main.png"
   # background_image: 'assets/images/sp.png'
 
   android_12:
     color: '#CE93D8'
-    image_path: "assets/images/spl.png"
+    image_path: "assets/images/todo_icon_main.png"
 
