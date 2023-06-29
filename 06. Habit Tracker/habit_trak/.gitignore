@@ -22,27 +22,27 @@ migrate_working_dir/
 #.vscode/
 
 # Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
-/build/
-/linux
-/macos
-/windows
-/.metadata
-/analysis_options.yaml
-/pubspec.lock
-/README.md
-/test
-/web
-/ios
-/android
-/.vscode
+# **/doc/api/
+# **/ios/Flutter/.last_build_id
+# .dart_tool/
+# .flutter-plugins
+# .flutter-plugins-dependencies
+# .packages
+# .pub-cache/
+# .pub/
+# /build/
+# /linux
+# /macos
+# /windows
+# /.metadata
+# /analysis_options.yaml
+# /pubspec.lock
+# /README.md
+# /test
+# /web
+# /ios
+# /android
+# /.vscode
 
 # Symbolication related
 app.*.symbols
